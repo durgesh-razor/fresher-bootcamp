@@ -18,7 +18,7 @@ func (m Matrix) getcolumn() int {
 	return m.col
 }
 
-func (m Matrix) serelem(i int , j int, val int) bool {
+func (m Matrix) setelem(i int , j int, val int) bool {
 	if i >= m.row && j >= m.col {
 		return false
 	}
@@ -70,6 +70,8 @@ func gentMatrix(r int, c int) Matrix{
 func main(){
 	m1 := gentMatrix(3, 3)
 	m2 := gentMatrix(3, 3)
+
+	m1.setelem(1, 1, 0)
 
 	fmt.Println(m1.getrow())
 	fmt.Println(m1.getcolumn())
