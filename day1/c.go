@@ -8,15 +8,26 @@ type Node struct {
 	right *Node
 }
 
-func inorder(root *Node){
-	if root.left != nil{
-		inorder(root.left)
-	}
+func preorder(root *Node){
 	fmt.Printf("%s ", root.val)
+	if root.left != nil {
+		preorder(root.left)
+	}
 	if root.right != nil {
-		inorder(root.right)
+		preorder(root.right)
 	}
 }
+
+func postorder(root *Node){
+	if root.left != nil {
+		postorder(root.left)
+	}
+	if root.right != nil {
+		postorder(root.right)
+	}
+	fmt.Printf("%s ", root.val)
+}
+
 func main(){
 	tree := [5]Node{}
 	tree[0].val = "+"
@@ -32,5 +43,7 @@ func main(){
 	tree[2].left = &tree[3]
 	tree[2].right = &tree[4]
 
-	inorder(&tree[0])
+	preorder(&tree[0])
+	fmt.Println("")
+	postorder(&tree[0])
 }
