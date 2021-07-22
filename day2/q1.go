@@ -5,12 +5,11 @@ import (
 	"strings"
 )
 
-func CountCharactersFrequency(str string, results chan<- [128]int) {
+func countCharactersFrequency(str string, results chan<- [128]int) {
 	var cnt [128]int
 	for i := 0; i < 128; i++ {
 		cnt[i] += strings.Count(str, string(rune(' '+i)))
 	}
-
 	results <- cnt
 }
 func main() {
@@ -19,7 +18,7 @@ func main() {
 	results := make(chan [128]int, numberOfStrings)
 
 	for stringCounter := 0; stringCounter < numberOfStrings; stringCounter++ {
-		go CountCharactersFrequency(strings[stringCounter], results)
+		go countCharactersFrequency(strings[stringCounter], results)
 	}
 
 	var finalFrequency [128]int
@@ -32,6 +31,8 @@ func main() {
 	}
 
 	for i := 0; i < 128; i++ {
-		fmt.Printf("%c : %d\n", rune(' '+i), finalFrequency[i])
+		if finalFrequency[i] != 0 {
+			fmt.Printf("%c : %d\n", rune(' '+i), finalFrequency[i])
+		}
 	}
 }
