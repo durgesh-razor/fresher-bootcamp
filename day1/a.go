@@ -6,8 +6,8 @@ import (
 )
 
 type Matrix struct {
-	row int
-	col int
+	row    int
+	col    int
 	matrix [][]int
 }
 
@@ -18,7 +18,7 @@ func (m Matrix) getcolumn() int {
 	return m.col
 }
 
-func (m Matrix) setelem(i int , j int, val int) bool {
+func (m Matrix) setelem(i int, j int, val int) bool {
 	if i >= m.row && j >= m.col {
 		return false
 	}
@@ -39,12 +39,12 @@ func (m Matrix) add(M Matrix) bool {
 }
 
 func (m Matrix) print() bool {
-	fmt.Println("{" )
+	fmt.Println("{")
 	for i := 0; i < m.row; i++ {
 		fmt.Printf("\t%s", "{ ")
 		for j := 0; j < m.col; j++ {
 
-			fmt.Printf("%d,",m.matrix[i][j])
+			fmt.Printf("%d,", m.matrix[i][j])
 		}
 		fmt.Println("}")
 	}
@@ -52,12 +52,12 @@ func (m Matrix) print() bool {
 	return true
 }
 
-func gentMatrix(r int, c int) Matrix{
+func gentMatrix(r int, c int) Matrix {
 	m := Matrix{
 		row: r,
 		col: c,
 	}
-	m.matrix = make([][]int,  r)
+	m.matrix = make([][]int, r)
 	for i := 0; i < m.row; i++ {
 		m.matrix[i] = make([]int, c)
 		for j := 0; j < m.col; j++ {
@@ -67,7 +67,7 @@ func gentMatrix(r int, c int) Matrix{
 	return m
 }
 
-func main(){
+func main() {
 	m1 := gentMatrix(3, 3)
 	m2 := gentMatrix(3, 3)
 
