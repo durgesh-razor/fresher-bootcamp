@@ -15,17 +15,17 @@ func CountCharactersFrequency(str string, results chan<- [26]int) {
 }
 func main() {
 	numberOfStrings := 2
-	Strings := []string{"aaabbc", "aaabbd"}
-	Results := make(chan [26]int, numberOfStrings)
+	strings := []string{"aaabbc", "aaabbd"}
+	results := make(chan [26]int, numberOfStrings)
 
 	for stringCounter := 0; stringCounter < numberOfStrings; stringCounter++ {
-		go CountCharactersFrequency(Strings[stringCounter], Results)
+		go CountCharactersFrequency(strings[stringCounter], results)
 	}
 
 	var finalFrequency [26]int
 
 	for _i := 0; _i < numberOfStrings; _i++ {
-		result := <-Results
+		result := <-results
 		for i := 0; i < 26; i++ {
 			finalFrequency[i] += result[i]
 		}
