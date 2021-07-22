@@ -14,6 +14,7 @@ func worker(wg *sync.WaitGroup, sum *int) {
 }
 
 func main() {
+	rand.Seed(time.Now().UTC().UnixNano())
 	var wg sync.WaitGroup
 	var sum int = 0
 	for i := 1; i <= 200; i++ {

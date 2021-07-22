@@ -28,6 +28,7 @@ func (c *BankAccount) Deposit(amount int, mu *sync.Mutex) {
 }
 
 func main() {
+	rand.Seed(time.Now().UTC().UnixNano())
 	var mu sync.Mutex
 	c := BankAccount{fund: 500}
 	for i := 0; i < 500; i++ {
