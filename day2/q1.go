@@ -15,10 +15,8 @@ func CountCharactersFrequency(str string, results chan<- [26]int) {
 }
 func main() {
 	numberOfStrings := 2
-	Strings := make([]string, 0)
+	Strings := []string{"aaabbc", "aaabbd"}
 	Results := make(chan [26]int, numberOfStrings)
-	Strings = append(Strings, "aaabbc")
-	Strings = append(Strings, "aaabbd")
 
 	for stringCounter := 0; stringCounter < numberOfStrings; stringCounter++ {
 		go CountCharactersFrequency(Strings[stringCounter], Results)
