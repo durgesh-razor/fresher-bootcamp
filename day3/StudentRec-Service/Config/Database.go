@@ -9,6 +9,8 @@ import (
 	"gorm.io/gorm"
 )
 
+var DB *gorm.DB
+
 // DBConfig represents db configuration
 type DBConfig struct {
 	Host     string
@@ -55,5 +57,3 @@ func ConnectDB() (*gorm.DB, error) {
 	}), &gorm.Config{})
 	return DB, err
 }
-
-var DB, _ = ConnectDB()

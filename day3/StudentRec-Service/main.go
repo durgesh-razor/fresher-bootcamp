@@ -7,16 +7,17 @@ import (
 	"studentRecord/Routes"
 )
 
+var err error
+
 func main() {
-	DB, err := Config.ConnectDB()
+	Config.DB, err = Config.ConnectDB()
 	if err != nil {
 		panic(err)
-		// fmt.Println("Status:", err)
 	}
 
 	//Apply Migrations
-	DB.Migrator().DropTable(&Student.Student{}, &Marks.Marks{})
-	DB.AutoMigrate(&Student.Student{}, &Marks.Marks{})
+	Config.DB.Migrator().DropTable(&Student.Student{}, &Marks.Marks{})
+	Config.DB.AutoMigrate(&Student.Student{}, &Marks.Marks{})
 	r := Routes.SetupRouter()
 	//running
 	r.Run()

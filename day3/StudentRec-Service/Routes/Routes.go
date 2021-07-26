@@ -10,7 +10,7 @@ import (
 //SetupRouter ... Configure routes
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
-	Student.UserRouter(r.Group(""))
+	Student.StudentRouter(r.Group(""))
 	Marks.MarkRouter(r.Group(""))
 	return r
 }

@@ -2,7 +2,7 @@ package Student
 
 import "github.com/gin-gonic/gin"
 
-func UserRouter(router *gin.RouterGroup) {
+func StudentRouter(router *gin.RouterGroup) {
 
 	router.GET("student", GetStudents)
 	router.POST("student", CreateStudent)
