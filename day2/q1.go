@@ -12,6 +12,7 @@ func countCharactersFrequency(str string, results chan<- [128]int) {
 	}
 	results <- cnt
 }
+
 func main() {
 	numberOfStrings := 2
 	strings := []string{"aaabbc", "aaabbd"}
