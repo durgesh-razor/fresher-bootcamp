@@ -18,7 +18,6 @@ func PlaceOrderController(c *gin.Context) {
 		fmt.Println(err.Error())
 		c.AbortWithStatus(http.StatusNotFound)
 	} else {
-
 		c.JSON(http.StatusOK, order)
 	}
 

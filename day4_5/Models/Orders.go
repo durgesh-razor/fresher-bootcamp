@@ -11,5 +11,5 @@ type Orders struct {
 	UserID    uint64
 	Product   Product `json:"product" binding:"required" gorm:"foreignkey:ProductID"`
 	ProductID uint64
-	Status    string `json:"msg"`
+	Status    string `json:"status"`
 }

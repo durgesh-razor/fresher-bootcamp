@@ -45,8 +45,9 @@ func GetAllProductController(c *gin.Context) {
 
 func UpdateProductController(c *gin.Context) {
 	var product Models.Product
+	id := c.Params.ByName("id")
 	c.BindJSON(&product)
-	err := Service.UpdateProduct(&product)
+	err := Service.UpdateProduct(&product, id)
 	if err != nil {
 		fmt.Println(err.Error())
 		c.AbortWithStatus(http.StatusNotFound)

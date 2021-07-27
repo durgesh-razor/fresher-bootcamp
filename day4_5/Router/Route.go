@@ -6,7 +6,7 @@ import (
 )
 
 //SetupRouter ... Configure routes
-func SetupRouter() {
+func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	grp1 := r.Group("")
 	{
