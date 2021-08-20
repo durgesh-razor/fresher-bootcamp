@@ -2,7 +2,6 @@ package Config
 
 import (
 	"fmt"
-	"retailer-service/Environment"
 	"strconv"
 
 	"gorm.io/driver/mysql"
