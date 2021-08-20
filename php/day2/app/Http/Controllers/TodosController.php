@@ -106,12 +106,14 @@ class TodosController extends Controller
         $title = \request('title');
         $desc = \request('description');
 
-        $data = array('title'=>$title,'description'=>$desc);
+        $data = array('title'=>$title,'description'=>$desc, 'status' => 'Pending');
         $id = DB::table('todos')->insertGetId($data);
         return response()->json([
             'id'=>$id,
-            'first_name'=>$title,
-            'last_name'=>$desc]);
+            'title'=>$title,
+            'description'=>$desc,
+            'status' => 'Pending'
+        ]);
     }
 
     public function delete(int $id): JsonResponse
@@ -126,6 +128,7 @@ class TodosController extends Controller
     {
         $title = \request('title');
         $desc = \request('description');
+        $status = \request('status');
 
         $todo = DB::table('todos')->where('id', $id);
         if($title) {
@@ -133,6 +136,10 @@ class TodosController extends Controller
         }
         if($desc){
             $todo->update(['description' => $desc]);
+        }
+
+        if($status){
+            $todo->update(['status' => $status]);
         }
 
         // $todo->save();

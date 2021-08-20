@@ -10,5 +10,6 @@ class VerifyCsrfToken extends Middleware
 
     protected $except = [
         'todo/*',
+        'todo'
     ];
 }

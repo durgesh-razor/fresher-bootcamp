@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Etah Road Near Krishna Palace Kasganj, Kasganj, Uttar Pradesh, 207123 extends Migration
+class Todo1 extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class Etah Road Near Krishna Palace Kasganj, Kasganj, Uttar Pradesh, 207123 exte
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->timestamps();
+            $table->string('status');
         });
     }
 
